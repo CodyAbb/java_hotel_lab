@@ -19,4 +19,9 @@ public class Conference {
     public int getCapacity() {
         return capacity;
     }
+
+    public int getNumberOfAttendees(){
+        return attendees.size();
+    }
+
 }
