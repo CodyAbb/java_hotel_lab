@@ -1,7 +1,10 @@
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.ArrayList;
+
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertSame;
 
 public class HotelTest {
 
@@ -98,4 +101,16 @@ public class HotelTest {
         assertEquals(2, conferenceRoom1.getNumberOfAttendees());
     }
 
+    @Test
+    public void generateBookingFromGuestBookIn(){
+        hotel1.bookRoom(3, bedroom1, guest2);
+        hotel1.bookRoom(4, bedroom2, guest1);
+        hotel1.bookRoom(2, bedroom2, guest4);
+        ArrayList<Booking> listOfBookings = hotel1.returnListOfBookings();
+        Booking testBooking = listOfBookings.get(0);
+        assertEquals(3, hotel1.numberOfBookings());
+    }
+
 }
+
+//bookings[0] = hotel1.bookRoom

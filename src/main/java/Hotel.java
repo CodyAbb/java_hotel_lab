@@ -1,3 +1,4 @@
+import java.awt.print.Book;
 import java.util.ArrayList;
 
 public class Hotel {
@@ -5,11 +6,13 @@ public class Hotel {
     private ArrayList<Bedroom> bedrooms;
     private ArrayList<Conference> conferenceRooms;
     private ArrayList<Guest> guests;
+    private ArrayList<Booking> bookings;
 
     public Hotel(){
         bedrooms = new ArrayList<Bedroom>();
         conferenceRooms = new ArrayList<Conference>();
         guests = new ArrayList<Guest>();
+        bookings = new ArrayList<Booking>();
     }
 
     public int numberOfBedrooms(){
@@ -22,6 +25,10 @@ public class Hotel {
 
     public int numberOfGuests(){
         return this.guests.size();
+    }
+
+    public int numberOfBookings(){
+        return this.bookings.size();
     }
 
     public void addBedroom(Bedroom bedroom) {
@@ -68,5 +75,15 @@ public class Hotel {
 
     public void checkOutGuestOfConferenceRoom(Conference conferenceRoom1, Guest guest1) {
         conferenceRoom1.removeGuest(guest1);
+    }
+
+    public ArrayList<Booking> returnListOfBookings(){
+        ArrayList<Booking> copyOfBookings = new ArrayList<Booking>(this.bookings);
+        return copyOfBookings;
+    }
+
+    public void bookRoom(int durationOfStay, Bedroom bedroom, Guest guest){
+        Booking booking1 = new Booking(durationOfStay, bedroom, guest);
+        this.bookings.add(booking1);
     }
 }

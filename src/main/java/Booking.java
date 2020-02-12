@@ -6,7 +6,7 @@ public class Booking {
     private int duration;
     private ArrayList<Guest> guests;
 
-    public Booking(int duration) {
+    public Booking(int duration, Bedroom bedroom, Guest guest) {
         this.duration = duration;
         this.bedrooms = new ArrayList<Bedroom>();
         this.guests = new ArrayList<Guest>();
