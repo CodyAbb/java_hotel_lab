@@ -19,7 +19,7 @@ public class BookingTest {
         guest1 = new Guest("Ross");
         guest2 = new Guest("Matteo");
         guest3 = new Guest("Andrew");
-        bedroom1 = new Bedroom(3, 2, "shagpad");
+        bedroom1 = new Bedroom(3, 2, "shagpad", 23);
     }
 
     @Test

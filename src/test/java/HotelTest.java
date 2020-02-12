@@ -24,8 +24,8 @@ public class HotelTest {
         guest2 = new Guest("Chris");
         guest3 = new Guest("Jen");
         guest4 = new Guest("Paddy");
-        bedroom1 = new Bedroom(4, 2, "red");
-        bedroom2 = new Bedroom(5, 2, "ice");
+        bedroom1 = new Bedroom(4, 2, "red", 27);
+        bedroom2 = new Bedroom(5, 2, "ice", 2);
         conferenceRoom1 = new Conference("Harris", 3);
         conferenceRoom2 = new Conference("Isle of Mull", 2);
         hotel1 = new Hotel();
@@ -109,6 +109,24 @@ public class HotelTest {
         ArrayList<Booking> listOfBookings = hotel1.returnListOfBookings();
         Booking testBooking = listOfBookings.get(0);
         assertEquals(3, hotel1.numberOfBookings());
+    }
+
+    @Test
+    public void checkGuestCannotBeAddedIfRoomIsNotAvailable(){
+        hotel1.bookRoom(2, bedroom2, guest1);
+        hotel1.bookRoom(2, bedroom2, guest4);
+        hotel1.bookRoom(2, bedroom2, guest3);
+        ArrayList<Booking> listOfBookings = hotel1.returnListOfBookings();
+        Booking testBooking = listOfBookings.get(0);
+        assertEquals(1, hotel1.numberOfBookings());
+    }
+
+    @Test
+    public void getTotalAmountForStay(){
+        hotel1.bookRoom(2, bedroom1, guest4);
+        ArrayList<Booking> listOfBookings = hotel1.returnListOfBookings();
+        Booking booking1 = listOfBookings.get(0);
+        assertEquals(54, hotel1.getTotal(booking1));
     }
 
 }

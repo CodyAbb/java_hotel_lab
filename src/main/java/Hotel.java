@@ -83,7 +83,19 @@ public class Hotel {
     }
 
     public void bookRoom(int durationOfStay, Bedroom bedroom, Guest guest){
-        Booking booking1 = new Booking(durationOfStay, bedroom, guest);
-        this.bookings.add(booking1);
+            Booking booking1 = new Booking(durationOfStay, bedroom, guest);
+            this.bookings.add(booking1);
+    }
+
+    public boolean testBedroomAvaliable(Bedroom bedroom){
+        if(bedrooms.isEmpty()){
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public int getTotal(Booking booking1) {
+        return booking1.getDuration() * booking1.getBedRoomRate();
     }
 }

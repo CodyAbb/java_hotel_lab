@@ -2,19 +2,24 @@ import java.util.ArrayList;
 
 public class Booking {
 
-    private ArrayList<Bedroom> bedrooms;
+    private Bedroom bedroom;
     private int duration;
-    private ArrayList<Guest> guests;
+    private Guest guest;
 
     public Booking(int duration, Bedroom bedroom, Guest guest) {
         this.duration = duration;
-        this.bedrooms = new ArrayList<Bedroom>();
-        this.guests = new ArrayList<Guest>();
+        this.bedroom = bedroom;
+        this.guest = guest;
     }
 
     public int getDuration() {
         return duration;
     }
+
+    public int getBedRoomRate(){
+        return this.bedroom.getNightlyRate();
+    }
+
 
 //    public ArrayList<Guest> getGuests() {
 //        return guests;
