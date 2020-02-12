@@ -31,4 +31,28 @@ public class Hotel {
     public void addConferenceRoom(Conference conference){
         this.conferenceRooms.add(conference);
     }
+
+    public boolean bedroomAvaliable(Bedroom bedroom1) {
+        if (bedroom1.getNumberOfGuests() < bedroom1.getRoomCapacity()) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
+    public boolean conferenceRoomAvaliable(Conference conference1) {
+        if (conference1.getNumberOfAttendees() < conference1.getCapacity()){
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
+    public void addGuest(Bedroom bedroom1, Guest guest2) {
+        if (bedroomAvaliable(bedroom1)) {
+            bedroom1.addGuest(guest2);
+        }
+    }
 }

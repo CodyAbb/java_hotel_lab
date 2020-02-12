@@ -29,4 +29,8 @@ public class Bedroom {
     public int getNumberOfGuests(){
         return this.guests.size();
     }
+
+    public void addGuest(Guest guest) {
+        this.guests.add(guest);
+    }
 }
