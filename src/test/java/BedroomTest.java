@@ -1,6 +1,9 @@
 import org.junit.Before;
+import org.junit.Test;
 
 import java.util.ArrayList;
+
+import static org.junit.Assert.assertEquals;
 
 public class BedroomTest {
 
@@ -13,5 +16,20 @@ public class BedroomTest {
         guest1 = new Guest("Stephen");
         guest2 = new Guest("James");
         bedroom1 = new Bedroom(3, 2, "double");
+    }
+
+    @Test
+    public void getRoomNumber(){
+        assertEquals(3, bedroom1.getRoomNumber());
+    }
+
+    @Test
+    public void getRoomCapacity(){
+        assertEquals(2, bedroom1.getRoomCapacity());
+    }
+
+    @Test
+    public void getRoomType(){
+        assertEquals("double", bedroom1.getRoomType());
     }
 }

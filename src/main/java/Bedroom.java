@@ -13,4 +13,16 @@ public class Bedroom {
         this.type = type;
         this.guests = new ArrayList<Guest>();
     }
+
+    public int getRoomNumber() {
+        return this.roomNum;
+    }
+
+    public int getRoomCapacity() {
+        return this.capacity;
+    }
+
+    public String getRoomType() {
+        return this.type;
+    }
 }
