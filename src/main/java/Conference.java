@@ -24,4 +24,13 @@ public class Conference {
         return attendees.size();
     }
 
+    public void addGuest(Guest guest) {
+        this.attendees.add(guest);
+    }
+
+    public void removeGuest(Guest guest) {
+        int index = this.attendees.indexOf(guest);
+        this.attendees.remove(index);
+    }
+
 }

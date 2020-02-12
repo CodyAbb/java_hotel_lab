@@ -54,16 +54,48 @@ public class HotelTest {
 
     @Test
     public void checkGuestIntoBedroom(){
-        hotel1.addGuest(bedroom1, guest2);
-        assertEquals(2, bedroom1.getNumberOfGuests());
+        hotel1.addGuestToBedroom(bedroom1, guest2);
+        assertEquals(1, bedroom1.getNumberOfGuests());
     }
 
     @Test
     public void bedroomOccupiedCannotCheckIn(){
-        hotel1.addGuest(bedroom1, guest2);
-        hotel1.addGuest(bedroom1, guest3);
-        hotel1.addGuest(bedroom1, guest4);
+        hotel1.addGuestToBedroom(bedroom1, guest2);
+        hotel1.addGuestToBedroom(bedroom1, guest3);
+        hotel1.addGuestToBedroom(bedroom1, guest4);
         assertEquals(2, bedroom1.getNumberOfGuests());
+    }
+
+    @Test
+    public void checkGuestIntoConferenceRoom(){
+        hotel1.addGuestToConferenceRoom(conferenceRoom1, guest4);
+        assertEquals(1, conferenceRoom1.getNumberOfAttendees());
+    }
+
+    @Test
+    public void conferenceRoomOccupiedCannotCheckIn() {
+        hotel1.addGuestToConferenceRoom(conferenceRoom1, guest4);
+        hotel1.addGuestToConferenceRoom(conferenceRoom1, guest1);
+        hotel1.addGuestToConferenceRoom(conferenceRoom1, guest2);
+        hotel1.addGuestToConferenceRoom(conferenceRoom1, guest3);
+        assertEquals(3, conferenceRoom1.getNumberOfAttendees());
+    }
+
+    @Test
+    public void checkOutGuestFromBedroom(){
+        hotel1.addGuestToBedroom(bedroom1, guest2);
+        hotel1.addGuestToBedroom(bedroom1, guest3);
+        hotel1.checkOutGuestOfBedroom(bedroom1, guest2);
+        assertEquals(1, bedroom1.getNumberOfGuests());
+    }
+
+    @Test
+    public void checkOutGuestFromConferenceRoom() {
+        hotel1.addGuestToConferenceRoom(conferenceRoom1, guest4);
+        hotel1.addGuestToConferenceRoom(conferenceRoom1, guest1);
+        hotel1.addGuestToConferenceRoom(conferenceRoom1, guest2);
+        hotel1.checkOutGuestOfConferenceRoom(conferenceRoom1, guest1);
+        assertEquals(2, conferenceRoom1.getNumberOfAttendees());
     }
 
 }

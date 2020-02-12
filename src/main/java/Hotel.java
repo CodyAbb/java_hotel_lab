@@ -50,9 +50,23 @@ public class Hotel {
         }
     }
 
-    public void addGuest(Bedroom bedroom1, Guest guest2) {
+    public void addGuestToBedroom(Bedroom bedroom1, Guest guest2) {
         if (bedroomAvaliable(bedroom1)) {
             bedroom1.addGuest(guest2);
         }
+    }
+
+    public void addGuestToConferenceRoom(Conference conferenceRoom1, Guest guest4) {
+        if (conferenceRoomAvaliable(conferenceRoom1)) {
+            conferenceRoom1.addGuest(guest4);
+        }
+    }
+
+    public void checkOutGuestOfBedroom(Bedroom bedroom1, Guest guest2) {
+        bedroom1.removeGuest(guest2);
+    }
+
+    public void checkOutGuestOfConferenceRoom(Conference conferenceRoom1, Guest guest1) {
+        conferenceRoom1.removeGuest(guest1);
     }
 }
